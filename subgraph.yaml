@@ -10,35 +10,14 @@ dataSources:
       abi: Contract
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.2
+      apiVersion: 0.0.3
       language: wasm/assemblyscript
       entities:
         - ExecuteTrade
-        - KyberNetworkSet
-        - TokenWithdraw
-        - EtherWithdraw
-        - TransferAdminPending
-        - AdminClaimed
-        - AlerterAdded
-        - OperatorAdded
       abis:
         - name: Contract
           file: ./abis/Contract.json
       eventHandlers:
         - event: ExecuteTrade(indexed address,address,address,uint256,uint256)
           handler: handleExecuteTrade
-        - event: KyberNetworkSet(address,address)
-          handler: handleKyberNetworkSet
-        - event: TokenWithdraw(address,uint256,address)
-          handler: handleTokenWithdraw
-        - event: EtherWithdraw(uint256,address)
-          handler: handleEtherWithdraw
-        - event: TransferAdminPending(address)
-          handler: handleTransferAdminPending
-        - event: AdminClaimed(address,address)
-          handler: handleAdminClaimed
-        - event: AlerterAdded(address,bool)
-          handler: handleAlerterAdded
-        - event: OperatorAdded(address,bool)
-          handler: handleOperatorAdded
       file: ./src/mapping.ts
